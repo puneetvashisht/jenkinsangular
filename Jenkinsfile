@@ -16,16 +16,16 @@ pipeline {
                 sh 'npm install'
             }
         }
-        // stage('Test') {
-        //     steps {
-        //         echo 'Testing..'
-        //         sh 'npm test'
-        //     }
-        // }
-        // stage('Package') {
-        //     steps {
-        //         echo 'npm build'
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'npm test'
+            }
+        }
+        stage('Package') {
+            steps {
+                echo 'npm build'
+            }
+        }
     }
 }
