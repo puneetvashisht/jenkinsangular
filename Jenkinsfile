@@ -37,7 +37,8 @@ pipeline {
 
         stage("Upload"){
             steps{
-                //  withAWS(profile:'PuneetAWS' , region: 'ap-northeast-1') {
+                 withAWS(region: 'ap-northeast-1') {
+                    
                     bat 'echo "hello KB">hello.txt'
                     // s3Upload (entries: [
                     //     {bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"}
@@ -57,7 +58,7 @@ pipeline {
             // steps{
             //     withAWS(region:"${region}", credentials:"${aws_credential}) {s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"/")
             //     }    
-            // }
+            }
         
         }
     }
