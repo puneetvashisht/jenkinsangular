@@ -7,7 +7,7 @@ pipeline {
         stage('Check version') {
             steps {
                 echo 'Cleaning..'
-                sh 'npm --version'
+               
             }
         }
         stage('Install dependencies') {
