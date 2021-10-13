@@ -42,7 +42,7 @@ pipeline {
                     // s3Upload (entries: [
                     //     {bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"}
                     // ] )
-                    s3Upload(file:'hello.txt', bucket:'my-jenkinsanglar', path:'/')
+                    s3Upload(entries: [file:'hello.txt', bucket:'my-jenkinsanglar', path:'/'])
                     // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
                     sh 'cat hello.txt'
                 }
