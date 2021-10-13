@@ -46,7 +46,7 @@ pipeline {
                     userMetadata: [],
                     dontWaitForConcurrentBuildCompletion: true,
                     consoleLogLevel: 'INFO',
-                    pluginFailureResultConstraint: ''
+                    pluginFailureResultConstraint: '',
                     dontSetBuildResultOnFailure: true,
                     entries: [file:'hello.txt', bucket:'my-jenkinsanglar', path:'/']
                     )
