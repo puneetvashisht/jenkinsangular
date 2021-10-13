@@ -37,10 +37,17 @@ pipeline {
 
         stage("Upload"){
             steps{
-                withAWS(region:"${region}", credentials:"${aws_credential}) {
-                    s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"/")
-                }    
+                 withAWS(credentials: 'PuneetAWS', region: 'ap-northeast-1') {
+                    sh 'echo "hello KB">hello.txt'
+                    s3Upload acl: 'Private', bucket: 'my-jenkinsanglar', file: 'hello.txt'
+                    // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
+                    sh 'cat hello.txt'
+                }
             }
+            // steps{
+            //     withAWS(region:"${region}", credentials:"${aws_credential}) {s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"/")
+            //     }    
+            // }
         
         }
     }
