@@ -40,7 +40,7 @@ pipeline {
                  withAWS(credentials: 'PuneetAWS', region: 'ap-northeast-1') {
                     sh 'echo "hello KB">hello.txt'
                     s3Upload (entries: [
-                        {bucket: 'my-jenkinsanglar', file: 'hello.txt',  path:"/"}
+                        {bucket: "my-jenkinsanglar", sourceFile: "hello.txt"}
                     ] )
                     // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
                     sh 'cat hello.txt'
