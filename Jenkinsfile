@@ -46,9 +46,11 @@ pipeline {
 
         stage("Upload"){
             steps{
+                 bat 'echo "hello KB">hello.txt'
+                 bat 'cat hello.txt'
                  withAWS(region:'ap-northeast-1',credentials:'PuneetAWS') {
                     
-                    bat 'echo "hello KB">hello.txt'
+                    // bat 'echo "hello KB">hello.txt'
                     // s3Upload (entries: [
                     //     {bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"}
                     // ] )
@@ -61,7 +63,7 @@ pipeline {
                     // entries: [file:'hello.txt', bucket:'my-jenkinsanglar', path:'/']
                     // )
                     // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
-                    bat 'cat hello.txt'
+                    // bat 'cat hello.txt'
                 // }
             }
             // steps{
