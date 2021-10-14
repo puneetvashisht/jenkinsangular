@@ -71,6 +71,14 @@ pipeline {
             //     withAWS(region:"${region}", credentials:"${aws_credential}) {s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"/")
             //     }    
             }
+            post {
+                success{
+                    bat 'echo "sucesss"'
+                }
+                failure{
+                    bat 'echo "failure"'
+                }
+            }
         
         }
     }
