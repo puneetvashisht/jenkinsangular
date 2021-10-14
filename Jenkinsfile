@@ -1,14 +1,14 @@
 pipeline {
-    environment {
-        aws_credential = "PuneetAWS"
-        bucket = "my-jenkinsanglar"
-        region = "ap-northeast-1"
-        webHook_url = "myWebHookURL"
-        TAG_NAME = "README.md"      
-    }
-  tools {
-    nodejs 'Node16'
-  }
+//     environment {
+//         aws_credential = "PuneetAWS"
+//         bucket = "my-jenkinsanglar"
+//         region = "ap-northeast-1"
+//         webHook_url = "myWebHookURL"
+//         TAG_NAME = "README.md"      
+//     }
+//   tools {
+//     nodejs 'Node16'
+//   }
     agent any
     stages {
         stage('Check version') {
