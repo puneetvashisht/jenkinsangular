@@ -52,7 +52,7 @@ pipeline {
                     
                     // bat 'echo "hello KB">hello.txt'
                     s3Upload (entries: [
-                        {bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"}
+                        [bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"]
                     ] )
                     s3Upload(profileName: 'PuneetAWS', 
                     userMetadata: [],
