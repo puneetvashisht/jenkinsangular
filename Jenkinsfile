@@ -55,11 +55,11 @@ pipeline {
                     //     [bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"]
                     // ] )
                     s3Upload(profileName: 'PuneetAWS', 
-                    // userMetadata: [],
-                    // dontWaitForConcurrentBuildCompletion: true,
-                    // consoleLogLevel: 'INFO',
-                    // pluginFailureResultConstraint: '',
-                    // dontSetBuildResultOnFailure: true,
+                    userMetadata: [],
+                    dontWaitForConcurrentBuildCompletion: true,
+                    consoleLogLevel: 'INFO',
+                    pluginFailureResultConstraint: '',
+                    dontSetBuildResultOnFailure: true,
                     entries: [[file:'hello.txt', bucket:'my-jenkinsanglar', path:'/']]
                     )
                     // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
