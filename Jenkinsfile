@@ -48,7 +48,7 @@ pipeline {
             steps{
                  bat 'echo "hello KB">hello.txt'
                 //  bat 'type hello.txt'
-                 withAWS(region:'ap-northeast-1',credentials:'PuneetAWS') {
+                 withAWS(region:'ap-northeast-1') {
                     
                     // bat 'echo "hello KB">hello.txt'
                     // s3Upload (entries: [
