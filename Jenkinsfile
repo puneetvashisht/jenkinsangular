@@ -47,7 +47,7 @@ pipeline {
         stage("Upload"){
             steps{
                  bat 'echo "hello KB">hello.txt'
-                 bat 'cat hello.txt'
+                 bat 'type hello.txt'
                  withAWS(region:'ap-northeast-1',credentials:'PuneetAWS') {
                     
                     // bat 'echo "hello KB">hello.txt'
