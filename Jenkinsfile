@@ -49,11 +49,11 @@ pipeline {
                  bat 'echo "hello KB">hello.txt'
                 //  bat 'type hello.txt'
                  withAWS(profile:'PuneetAWS', region:'ap-northeast-1') {
-                     s3Upload(file:'README.md', bucket:'my-jenkinsanglar')
+                    //  s3Upload(file:'README.md', bucket:'my-jenkinsanglar')
                     // bat 'echo "hello KB">hello.txt'
-                    // s3Upload (entries: [
-                    //     [bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"]
-                    // ] )
+                    s3Upload (entries: [
+                        [bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"]
+                    ])
                     // s3Upload(profileName: 'PuneetAWS', 
                     // userMetadata: [],
                     // dontWaitForConcurrentBuildCompletion: true,
