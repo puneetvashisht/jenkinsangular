@@ -35,31 +35,40 @@ pipeline {
         //     }
         // }
 
-        stage("Upload"){
-            steps{
-                 withAWS(region: 'ap-northeast-1') {
+        stage('Upload to AWS') {
+              steps {
+                  withAWS(region:'ap-northeast-1',credentials:'PuneetAWS') {
+                  bat 'echo "Uploading content with AWS creds"'
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'README.md', bucket:'my-jenkinsanglar')
+                  }
+              }
+         }
+
+        // stage("Upload"){
+        //     steps{
+        //          withAWS(region: 'ap-northeast-1') {
                     
-                    bat 'echo "hello KB">hello.txt'
-                    // s3Upload (entries: [
-                    //     {bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"}
-                    // ] )
-                    s3Upload(profileName: 'PuneetAWS', 
-                    userMetadata: [],
-                    dontWaitForConcurrentBuildCompletion: true,
-                    consoleLogLevel: 'INFO',
-                    pluginFailureResultConstraint: '',
-                    dontSetBuildResultOnFailure: true,
-                    entries: [file:'hello.txt', bucket:'my-jenkinsanglar', path:'/']
-                    )
-                    // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
-                    bat 'cat hello.txt'
-                // }
-            }
-            // steps{
-            //     withAWS(region:"${region}", credentials:"${aws_credential}) {s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"/")
-            //     }    
-            }
+        //             bat 'echo "hello KB">hello.txt'
+        //             // s3Upload (entries: [
+        //             //     {bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"}
+        //             // ] )
+        //             s3Upload(profileName: 'PuneetAWS', 
+        //             userMetadata: [],
+        //             dontWaitForConcurrentBuildCompletion: true,
+        //             consoleLogLevel: 'INFO',
+        //             pluginFailureResultConstraint: '',
+        //             dontSetBuildResultOnFailure: true,
+        //             entries: [file:'hello.txt', bucket:'my-jenkinsanglar', path:'/']
+        //             )
+        //             // s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
+        //             bat 'cat hello.txt'
+        //         // }
+        //     }
+        //     // steps{
+        //     //     withAWS(region:"${region}", credentials:"${aws_credential}) {s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"/")
+        //     //     }    
+        //     }
         
-        }
+        // }
     }
 }
