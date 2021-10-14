@@ -46,10 +46,11 @@ pipeline {
 
         stage("Upload"){
             steps{
-                 bat 'echo "hello KB">hello.txt'
+                //  bat 'echo "hello KB">hello.txt'
                 //  bat 'type hello.txt'
                  withAWS(profile:'PuneetAWS', region:'ap-northeast-1') {
-                     s3Upload(file:'README.md', bucket:'my-jenkinsanglar', path:'/')
+                     bat 'echo "hello KB">hello.txt'
+                     s3Upload(file:'hello.txt', bucket:'my-jenkinsanglar', path:'/')
                     // bat 'echo "hello KB">hello.txt'
                     // s3Upload (entries: [
                     //     [bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"]
