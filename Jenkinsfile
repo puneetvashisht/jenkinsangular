@@ -48,9 +48,9 @@ pipeline {
             steps{
                 //  bat 'echo "hello KB">hello.txt'
                 //  bat 'type hello.txt'
-                 withAWS(credentials:'puneetawscred', region:'ap-northeast-1') {
+                 withAWS(credentials:'puneetawscred', region:'ap-south-1') {
                      bat 'echo "hello KB">hello.txt'
-                     s3Upload(file:'hello.txt', bucket:'my-jenkinsanglar', path:'')
+                     s3Upload(file:'hello.txt', bucket:'my-jenkinsangular', path:'')
                     // s3Download(file:'hello.txt', bucket:'my-jenkinsanglar', path:'',force:true)
                     // bat 'echo "hello KB">hello.txt'
                     // s3Upload (entries: [
