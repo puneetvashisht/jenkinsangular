@@ -50,7 +50,8 @@ pipeline {
                 //  bat 'type hello.txt'
                  withAWS(profile:'PuneetAWS', region:'ap-northeast-1') {
                      bat 'echo "hello KB">hello.txt'
-                     s3Upload(file:'hello.txt', bucket:'my-jenkinsanglar', path:'hello.txt')
+                    //  s3Upload(file:'hello.txt', bucket:'my-jenkinsanglar', path:'hello.txt')
+                    s3Download(file:'hello.txt', bucket:'my-jenkinsanglar', path:'',force:true)
                     // bat 'echo "hello KB">hello.txt'
                     // s3Upload (entries: [
                     //     [bucket: 'my-jenkinsanglar', sourceFile: "hello.txt"]
