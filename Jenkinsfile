@@ -39,7 +39,7 @@ pipeline {
               steps {
                   withAWS(region:'ap-northeast-1',credentials:'PuneetAWS') {
                   bat 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'README.md', bucket:'my-jenkinsanglar')
+                      s3Upload(file:'README.md', bucket:'my-jenkinsanglar')
                   }
               }
          }
